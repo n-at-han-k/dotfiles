@@ -3,6 +3,9 @@ set expandtab
 
 syntax on
 
+set encoding=utf-8
+set fileencoding=utf-8
+
 " Vundle settings.
 " https://github.com/gmarik/Vundle.vim
 set nocompatible
