@@ -18,6 +18,10 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 Plugin 'gmarik/Vundle.vim'
+Plugin 'itchyny/lightline.vim'
 
 call vundle#end()
 filetype plugin indent on
+
+set laststatus=2
+set noshowmode
