@@ -9,8 +9,3 @@ Vundle Plugins canbe installed using the command:
 add to .bashrc
 
 export OPENAI_API_KEY=""
-
-add to `.bashrc`
-```
-xmodmap ~/.xmodmaprc
-```
