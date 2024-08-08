@@ -2,7 +2,6 @@
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-
 # https://github.com/airblade/vim-gitgutter
 git clone https://github.com/airblade/vim-gitgutter.git ~/.vim/pack/airblade/start/vim-gutter
 vim -u NONE -c "helptags vim-gitgutter/doc" -c q
