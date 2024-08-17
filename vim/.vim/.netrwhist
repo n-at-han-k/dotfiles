@@ -1,10 +1,6 @@
 let g:netrw_dirhistmax  =10
-<<<<<<< HEAD
-let g:netrw_dirhistcnt =3
-=======
 let g:netrw_dirhistcnt =4
 let g:netrw_dirhist_4='/root'
->>>>>>> d49d32b (.)
 let g:netrw_dirhist_3='/root/.oh-my-zsh'
 let g:netrw_dirhist_2='/root'
 let g:netrw_dirhist_1='/root/src/trade-portal/tradeportal/app/components/button'
@@ -14,7 +10,3 @@ let g:netrw_dirhist_8='/root/src/trade-portal/tradeportal/app/views/companies/ch
 let g:netrw_dirhist_7='/root/src/trade-portal/tradeportal/app/views/companies'
 let g:netrw_dirhist_6='/root/src/trade-portal/tradeportal/app/views'
 let g:netrw_dirhist_5='/root/src/trade-portal/tradeportal/app'
-<<<<<<< HEAD
-let g:netrw_dirhist_4='/root/src/trade-portal/tradeportal/app/components'
-=======
->>>>>>> d49d32b (.)
