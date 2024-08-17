@@ -1,8 +1,0 @@
-#!/bin/bash
-
-GIT=`which git`
-REPO_DIR=`${GIT} rev-parse --show-toplevel`
-cd ${REPO_DIR}
-${GIT} add --all .
-${GIT} commit -m "Quick Git Push"
-${GIT} push
