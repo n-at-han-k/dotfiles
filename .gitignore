@@ -1,4 +1,5 @@
-
+/tmux/.config/tmux/plugins/
+/tmux/.tmux/plugins
 
 ### LUA
 # Compiled Lua sources
