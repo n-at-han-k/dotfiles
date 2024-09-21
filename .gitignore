@@ -1,5 +1,6 @@
 /tmux/.config/tmux/plugins/
 /tmux/.tmux/plugins
+/vim/.vim/plugged/*
 
 ### LUA
 # Compiled Lua sources

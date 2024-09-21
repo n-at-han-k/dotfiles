@@ -19,6 +19,7 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'ryanoasis/vim-devicons' 
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'vimwiki/vimwiki'
+Plug 'ayu-theme/ayu-vim'
 "Plug 'preservim/nerdtree' 
 "Plug 'Xuyuanp/nerdtree-git-plugin' 
 "Plug 'tiagofumo/vim-nerdtree-syntax-highlight' 
@@ -28,10 +29,16 @@ Plug 'vimwiki/vimwiki'
 call plug#end()
 
 " seoul256 (dark):
-"   Range:   233 (darkest) ~ 239 (lightest)
-"   Default: 237
-let g:seoul256_background = 236
+"  Range:   233 (darkest) ~ 239 (lightest)
+"  Default: 237
+let g:seoul256_background = 237
 colo seoul256
+
+"set termguicolors     " enable true colors support
+"let ayucolor="light"  " for light version of theme
+"let ayucolor="mirage" " for mirage version of theme
+"let ayucolor="dark"   " for dark version of theme
+"colorscheme ayu
 
 let g:auto_save = 1
 let g:auto_save_events = ["InsertLeave", "TextChanged"]
