@@ -31,7 +31,7 @@ call plug#end()
 " seoul256 (dark):
 "  Range:   233 (darkest) ~ 239 (lightest)
 "  Default: 237
-let g:seoul256_background = 237
+let g:seoul256_background = 235
 colo seoul256
 
 "set termguicolors     " enable true colors support
@@ -50,10 +50,7 @@ set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-set number
+"set number
 set cc=+1,+2,+3
     
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
+nmap <C-n> :set invnumber<CR>
