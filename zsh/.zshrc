@@ -114,6 +114,7 @@ alias mutt="neomutt"
 alias mutt-wizard="mw"
 alias tp="cd tradeportal"
 alias tpvim="cd tradeportal && vim ."
+alias tpserve="cd tradeportal && bin/dev"
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
