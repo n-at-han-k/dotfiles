@@ -54,3 +54,4 @@ set shiftwidth=2
 set cc=+1,+2,+3
     
 nmap <C-n> :set invnumber<CR>
+nmap <C-f> :Files<CR>
