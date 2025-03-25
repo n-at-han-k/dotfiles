@@ -5,12 +5,15 @@
 
 
 call plug#begin()
-" List your plugins here
-"Plug 'tpope/vim-sensible'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'mattn/vim-lsp-settings'
+
 Plug 'aklt/plantuml-syntax'
-"Plug 'tyru/open-browser.vim'
 Plug 'nathanaelkane/vim-indent-guides'
-"Plug 'weirongxu/plantuml-previewer.vim'
+Plug 'xolox/vim-notes'
+Plug 'xolox/vim-misc'
 Plug 'previm/previm'
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/seoul256.vim'
@@ -27,10 +30,6 @@ Plug 'vimwiki/vimwiki'
 Plug 'ayu-theme/ayu-vim'
 Plug 'rstacruz/vim-closer'
 Plug 'mhinz/vim-startify'
-"Plug 'preservim/nerdtree' 
-"Plug 'Xuyuanp/nerdtree-git-plugin' 
-"Plug 'tiagofumo/vim-nerdtree-syntax-highlight' 
-"Plug 'scrooloose/nerdtree-project-plugin'
 Plug 'depuracao/vim-rdoc'
 call plug#end()
 
@@ -79,3 +78,40 @@ nmap <C-t> :terminal<CR>
 
 nmap <F3> :PrevimOpen<CR>
 nmap <F5> :PrevimRefresh<CR>
+
+
+
+""""
+" LSP SETTINGS
+function! s:on_lsp_buffer_enabled() abort
+    setlocal omnifunc=lsp#complete
+    setlocal signcolumn=yes
+    if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+    nmap <buffer> gd <plug>(lsp-definition)
+    nmap <buffer> gs <plug>(lsp-document-symbol-search)
+    nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
+    nmap <buffer> gr <plug>(lsp-references)
+    nmap <buffer> gi <plug>(lsp-implementation)
+    nmap <buffer> gt <plug>(lsp-type-definition)
+    nmap <buffer> <leader>rn <plug>(lsp-rename)
+    nmap <buffer> [g <plug>(lsp-previous-diagnostic)
+    nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+    nmap <buffer> K <plug>(lsp-hover)
+    nnoremap <buffer> <expr><c-f> lsp#scroll(+4)
+    nnoremap <buffer> <expr><c-d> lsp#scroll(-4)
+
+    let g:lsp_format_sync_timeout = 1000
+    autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
+    
+    " refer to doc to add more commands
+endfunction
+
+
+""""
+" TAB COMPLETION
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+"If you prefer the enter key to always insert a new line (even if the popup menu is visible) then you can amend the above mapping as follows:
+"inoremap <expr> <cr> pumvisible() ? asyncomplete#close_popup() . "\<cr>" : "\<cr>"
+
