@@ -1,29 +1,143 @@
+set nocompatible
 " Make sure to install vim-plug first
 "
 " then run :PlugInstall
 " https://github.com/junegunn/vim-plug
+nnoremap <leader>ni :e $NOTES_DIR/index.md<CR>:cd $NOTES_DIR<CR>
+nmap <C-n> :set invnumber<CR>
+nmap <C-f> :Files<CR>
+nmap <C-e> :Ex<CR>
+nmap <C-t> :terminal<CR>
 
+nmap <F3> :PrevimOpen<CR>
+nmap <F5> :PrevimRefresh<CR>
+nmap <F2> :Copilot panel<CR>
+nmap <F1> :Xtract<CR>
+nmap <F7> :IndentGuidesToggle<CR>
+
+let g:netrw_nogx = 1
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
+let g:previm_open_cmd = 'firefox_esr '
+
+"let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=grey     ctermbg=237
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgrey ctermbg=239
+
+filetype on
+autocmd BufRead,BufNewFile *.mab set filetype=ruby
+
+set spell
+let g:ruby_fold_lines_limit = 200
+highlight Folded guibg=grey guifg=blue
+highlight FoldColumn guibg=darkgrey guifg=white
+
+
+"#" Enable spelunker.vim. (default: 1)
+"#" 1: enable
+"#" 0: disable
+"#let g:enable_spelunker_vim = 1
+"#" Enable spelunker.vim on readonly files or buffer. (default: 0)
+"#" 1: enable
+"#" 0: disable
+"#let g:enable_spelunker_vim_on_readonly = 0
+"#" Check spelling for words longer than set characters. (default: 4)
+"#let g:spelunker_target_min_char_len = 4
+"#" Max amount of word suggestions. (default: 15)
+"#let g:spelunker_max_suggest_words = 15
+"#" Max amount of highlighted words in buffer. (default: 100)
+"#let g:spelunker_max_hi_words_each_buf = 100
+"#" Spellcheck type: (default: 1)
+"#" 1: File is checked for spelling mistakes when opening and saving. This
+"#" may take a bit of time on large files.
+"#" 2: Spellcheck displayed words in buffer. Fast and dynamic. The waiting time
+"#" depends on the setting of CursorHold `set updatetime=1000`.
+"#let g:spelunker_check_type = 1
+"#" Highlight type: (default: 1)
+"#" 1: Highlight all types (SpellBad, SpellCap, SpellRare, SpellLocal).
+"#" 2: Highlight only SpellBad.
+"#" FYI: https://vim-jp.org/vimdoc-en/spell.html#spell-quickstart
+"#let g:spelunker_highlight_type = 1
+"#" Option to disable word checking.
+"#" Disable URI checking. (default: 0)
+"#let g:spelunker_disable_uri_checking = 1
+"#" Disable email-like words checking. (default: 0)
+"#" NOTE: Spell checking is also disabled for JAVA annotations.
+"#let g:spelunker_disable_account_name_checking = 1
+"#" Disable acronym checking. (default: 0)
+"#let g:spelunker_disable_acronym_checking = 1
+"#" Disable checking words in backtick/backquote. (default: 0)
+"#let g:spelunker_disable_backquoted_checking = 1
+"#" Disable default autogroup. (default: 0)
+"#let g:spelunker_disable_auto_group = 1
+"#" Create own custom autogroup to enable spelunker.vim for specific filetypes.
+"#augroup spelunker
+"#  autocmd!
+"#  " Setting for g:spelunker_check_type = 1:
+"#  autocmd BufWinEnter,BufWritePost *.vim,*.js,*.jsx,*.json,*.md call spelunker#check()
+"#  " Setting for g:spelunker_check_type = 2:
+"#  autocmd CursorHold *.vim,*.js,*.jsx,*.json,*.md call spelunker#check_displayed_words()
+"#augroup END
+"#" Override highlight group name of incorrectly spelled words. (default:
+"#" 'SpelunkerSpellBad')
+"#let g:spelunker_spell_bad_group = 'SpelunkerSpellBad'
+"#" Override highlight group name of complex or compound words. (default:
+"#" 'SpelunkerComplexOrCompoundWord')
+"#let g:spelunker_complex_or_compound_word_group = 'SpelunkerComplexOrCompoundWord'
+"#" Override highlight setting.
+"#highlight SpelunkerSpellBad cterm=underline ctermfg=247 gui=underline guifg=#9e9e9e
+"#highlight SpelunkerComplexOrCompoundWord cterm=underline ctermfg=NONE gui=underline guifg=NONE
+
+
+" Enable folding.
+let g:vim_markdown_folding_disabled = 0
+" Fold heading in with the contents.
+let g:vim_markdown_folding_style_pythonic = 1
+" Don't use the shipped key bindings.
+"let g:vim_markdown_no_default_key_mappings = 1
+" Autoshrink TOCs.
+"let g:vim_markdown_toc_autofit = 1
+" Indentation for new lists. We don't insert bullets as it doesn't play
+" nicely with `gq` formatting. It relies on a hack of treating bullets
+" as comment characters.
+" See https://github.com/plasticboy/vim-markdown/issues/232
+let g:vim_markdown_new_list_item_indent = 1
+let g:vim_markdown_auto_insert_bullets = 1
+" Filetype names and aliases for fenced code blocks.
+"let g:vim_markdown_fenced_languages = ['php', 'py=python', 'js=javascript', 'bash=sh', 'viml=vim']
+" Highlight front matter (useful for Hugo posts).
+"let g:vim_markdown_toml_frontmatter = 1
+"let g:vim_markdown_json_frontmatter = 1
+let g:vim_markdown_frontmatter = 1
+" Format strike-through text (wrapped in `~~`).
+let g:vim_markdown_strikethrough = 1
 
 call plug#begin()
+"Plug 'kamykn/spelunker.vim'
+Plug 'tyru/open-browser.vim'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'tyru/open-browser-github.vim'
+Plug 'vim-utils/vim-ruby-fold'
+Plug 'wolandark/vim-ez-emoji'
+Plug 'sheerun/vim-polyglot'
+Plug 'godlygeek/tabular'
+Plug 'preservim/vim-markdown'
+Plug 'vim-ruby/vim-ruby'
+Plug 'rstacruz/vim-xtract'
 "Plug 'prabirshrestha/asyncomplete.vim'
 "Plug 'prabirshrestha/vim-lsp'
 "Plug 'prabirshrestha/asyncomplete-lsp.vim'
 "Plug 'mattn/vim-lsp-settings'
 "Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
-"Plug 'dense-analysis/ale'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'yaegassy/coc-ruby-syntax-tree', {'do': 'yarn install --frozen-lockfile'}
+
+"I can't use ultisnips as I don't have python set up properly
+"for my vim installation.
 "Plug 'SirVer/ultisnips'
 "Plug 'honza/vim-snippets'
-"Plug 'prabirshrestha/async.vim'
-"Plug 'prabirshrestha/vim-lsp'
-"Plug 'thomasfaingnaert/vim-lsp-snippets'
-"Plug 'thomasfaingnaert/vim-lsp-ultisnips'
-"Plug 'jlcrochet/vim-ruby'
-"Plug 'tpope/vim-endwise'
-"Plug 'tpope/vim-rails'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'yaegassy/coc-ruby-syntax-tree', {'do': 'yarn install --frozen-lockfile'}
 Plug 'noprompt/vim-yardoc'
-
 
 Plug 'aklt/plantuml-syntax'
 "Plug 'xolox/vim-notes'
@@ -44,13 +158,7 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'mhinz/vim-startify'
 call plug#end()
 
-let g:netrw_nogx = 1
-nmap gx <Plug>(openbrowser-smart-search)
-vmap gx <Plug>(openbrowser-smart-search)
-let g:plantuml_previewer#plantuml_jar_path='/usr/share/plantuml/plantuml.jar'
-let g:plantuml_previewer#debug_mode=1
 
-let g:previm_open_cmd = 'chrome '
 
 "set ts=2 sw=2 et
 "let g:indent_guides_start_level = 2
@@ -87,34 +195,21 @@ set shiftwidth=2
 set cc=+1,+2,+3
 
     
-nmap <C-n> :set invnumber<CR>
-nmap <C-f> :Files<CR>
-nmap <C-e> :Ex<CR>
-nmap <C-t> :terminal<CR>
 
-nmap <F3> :PrevimOpen<CR>
-nmap <F5> :PrevimRefresh<CR>
-
-let g:claude_api_key = 'your_api_key_here'
 let g:claude_map_implement = "<Leader>ci"
 let g:claude_map_open_chat = "<Leader>cc"
 let g:claude_map_send_chat_message = "<C-]>"
 let g:claude_map_cancel_response = "<Leader>cx"
 
-
-"let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsJumpForwardTrigger="<c-b>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-"let g:UltiSnipsEditSplit="vertical"
-"
-"let g:ale_fixers = {'javascript': ['prettier'], 'ruby': ['prettier']}
-"let g:airline#extensions#ale#enabled = 1
-
-
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
 """"""""""""""""""""""""""""""2
 " COC
-
+"
 " https://raw.githubusercontent.com/neoclide/coc.nvim/master/doc/coc-example-config.vim
 
 " May need for Vim (not Neovim) since coc.nvim calculates byte offset by count
@@ -275,3 +370,4 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
