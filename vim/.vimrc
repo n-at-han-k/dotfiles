@@ -13,10 +13,6 @@ let g:vim_ai_token_file_path = '~/.config/openai.token'
 
 nmap <F3> :PrevimOpen<CR>
 nmap <F5> :PrevimRefresh<CR>
-<<<<<<< Updated upstream
-nmap <F2> :Copilot panel<CR>
-=======
->>>>>>> Stashed changes
 nmap <F7> :IndentGuidesToggle<CR>
 
 let g:netrw_nogx = 1
