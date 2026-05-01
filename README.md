@@ -1,5 +1,7 @@
 # dotfiles
 
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/n-at-han-k/dotfiles)
+
 These are my dotfiles. Do with them what you wish.
 
 ## Set up
